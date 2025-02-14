@@ -6,11 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ListYourWork</title>
     <style>
-        * {
+        body {
             margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #111;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header {
+            background-color: #27445D;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .header h2 {
+            font-size: 22px;
+            margin: 0;
+            color: white;
+            cursor: pointer;
+        }
+
+        .header .menu {
+            display: flex;
+            gap: 16px;
+        }
+
+        .header .menu a {
+            font-weight: bold;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background-color 0.12s, color 0.12s;
+        }
+
+        .header .menu a:hover {
+            background-color: white;
+            color: #27445D;
         }
 
         .container {
@@ -21,6 +59,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            box-sizing: border-box;
         }
 
         .todo-app {
@@ -198,6 +237,14 @@
 </head>
 
 <body>
+    <div class="header">
+        <h2><span style="color: white;">Group BroTn</span></h2>
+        <div class="menu">
+            <a href="To-Do List.html">
+                To-Do List</a>
+            <a href="Loulad Purposes.html">Purposes</a><br>
+        </div>
+    </div>
     <div class="container">
         <div class="todo-app">
             <h2>To-Do List <img src="images/icon.webp" alt="To-Do Icon"></h2>
