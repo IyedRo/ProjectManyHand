@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #111;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .header {
+            background-color: #27445D;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .header h2 {
+            font-size: 22px;
+            margin: 0;
+            color: white;
+            cursor: pointer;
+        }
+
+        .header .menu {
+            display: flex;
+            gap: 16px;
+        }
+
+        .header .menu a {
+            font-weight: bold;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background-color 0.12s, color 0.12s;
+        }
+
+        .header .menu a:hover {
+            background-color: white;
+            color: #27445D;
+        }
+
+        #Calculator {
+            margin-top: 100px;
+            width: 200px;
+            padding: 8px;
+            background: linear-gradient(rgb(0, 50, 70), rgb(15, 95, 135));
+            border-radius: 10px;
+            border: solid white 3px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, .8);
+        }
+
+        #output input {
+            height: 38px;
+            width: 180px;
+            margin-bottom: 5px;
+            padding: 5px;
+            font-size: 30px;
+            text-align: right;
+            border-radius: 5px;
+            border: double 2px black;
+
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
+
+
+        }
+
+        #del {
+            background-color: orange;
+            transition: all 0.3s ease-in-out;
+        }
+
+        #del:hover {
+            background: linear-gradient(red, rgb(255, 136, 0));
+            color: black;
+            border: 2px white solid;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
+        }
+
+        #C {
+            width: 94px;
+            background-color: orange;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .btn,
+        .btn-op {
+            height: 45px;
+            width: 45px;
+            border: none;
+            margin: 2px 0px;
+            font-size: 18px;
+            border-radius: 5px;
+            transition: all .3s ease-in-out;
+        }
+
+        .btn-op {
+            background: linear-gradient(gray, rgb(161, 161, 161));
+            color: white;
+            transition: all .3s ease-in-out;
+        }
+
+        #C:hover {
+            background: linear-gradient(red, rgb(255, 136, 0));
+            color: black;
+            border: 2px white solid;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
+
+
+        }
+
+        .btn:hover {
+            background: linear-gradient(rgba(0, 55, 80, 0.6), rgba(0, 135, 197, 0.6));
+            color: white;
+            border: 2px white solid;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
+
+        }
+
+        .btn-op:hover {
+            background: linear-gradient(rgb(70, 70, 70), rgb(110, 110, 110));
+            color: white;
+            border: 2px white solid;
+            box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.8);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h2><span style="color: white;">Group BroTn</span></h2>
+        <div class="menu">
+            <a href="index.html">
+                To-Do List</a>
+            <a href="Purposes.html">Purposes</a>
+            <a href="Calc.html">Calc</a>
+        </div>
+    </div>
+    <center>
+        <div id="Calculator">
+            <div id="output">
+                <input id="out" type="text" value="0" readonly aria-label="Calculator output">
+            </div>
+            <div id="input">
+                <div class="row">
+                    <input class="btn Cmnd" type="button" value="C" id="C" onclick="C()" aria-label="Clear">
+                    <input class="btn Cmnd" type="button" value="del" id="del" onclick="del()" aria-label="Delete">
+                    <input class="btn-op" type="button" value="+" onclick="add('+')" aria-label="Add">
+                </div>
+                <div class="row">
+                    <input class="btn" type="button" value="1" onclick="add('1')" aria-label="One">
+                    <input class="btn" type="button" value="2" onclick="add('2')" aria-label="Two">
+                    <input class="btn" type="button" value="3" onclick="add('3')" aria-label="Three">
+                    <input class="btn-op" type="button" value="-" onclick="add('-')" aria-label="Subtract">
+                </div>
+                <div class="row">
+                    <input class="btn" type="button" value="4" onclick="add('4')" aria-label="Four">
+                    <input class="btn" type="button" value="5" onclick="add('5')" aria-label="Five">
+                    <input class="btn" type="button" value="6" onclick="add('6')" aria-label="Six">
+                    <input class="btn-op" type="button" value="*" onclick="add('*')" aria-label="Multiply">
+                </div>
+                <div class="row">
+                    <input class="btn" type="button" value="7" onclick="add('7')" aria-label="Seven">
+                    <input class="btn" type="button" value="8" onclick="add('8')" aria-label="Eight">
+                    <input class="btn" type="button" value="9" onclick="add('9')" aria-label="Nine">
+                    <input class="btn-op" type="button" value="/" onclick="add('/')" aria-label="Divide">
+                </div>
+
+                <div class="row">
+                    <input class="btn" type="button" value="00" onclick="add('00')" aria-label="Double Zero">
+                    <input class="btn" type="button" value="0" onclick="add('0')" aria-label="Zero">
+                    <input class="btn" type="button" value="." onclick="add('.')" aria-label="Decimal Point">
+                    <input class="btn-op" type="button" value="=" onclick="calc()" aria-label="Equals">
+                </div>
+            </div>
+        </div>
+    </center>
+
+
+</body>
+
+</html>
+
+<script>
+    function C() {
+        document.getElementById("out").value = "0";
+    }
+
+    function del() {
+        txt = document.getElementById("out");
+        txtnew = txt.value = txt.value.slice(0, -1)
+        if (txtnew.length == 0) {
+            txt.value = "0";
+        }
+    }
+
+
+    function add(object) {
+        txt = document.getElementById("out");
+        if (txt.value === "0" && object !== ".") {
+            txt.value = object;
+        } else {
+            txt.value += object;
+        }
+    }
+
+    function calc() {
+        txt = document.getElementById("out");
+        try {
+            txt.value = eval(out.value) || "0";
+        } catch (e) {
+            txt.value = "Error";
+        }
+    }
+</script>
