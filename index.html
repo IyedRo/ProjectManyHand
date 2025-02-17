@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="index.css">
     <style>
         .container {
-            background: linear-gradient(135deg, #153677, #4e085f);
             width: 100%;
-            min-height: 100vh;
+            min-height: 64vh;
             padding: 20px;
             display: flex;
             justify-content: center;
@@ -18,12 +17,12 @@
         }
 
         .todo-app {
-            width: 100%;
+            width: 90%;
             max-width: 540px;
             background: #fff;
-            margin: 20px;
+            margin: 20px auto;
             padding: 40px 30px;
-            border-radius: 20px;
+            border-radius: 24px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -57,7 +56,7 @@
             align-items: center;
             justify-content: space-between;
             background: #edeef0;
-            border-radius: 30px;
+            border-radius: 24px;
             padding-left: 20px;
             margin-bottom: 30px;
             transition: background 0.3s ease, box-shadow 0.3s ease;
@@ -95,7 +94,7 @@
             color: #fff;
             font-size: 16px;
             cursor: pointer;
-            border-radius: 40px;
+            border-radius: 24px;
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
@@ -114,17 +113,18 @@
         }
 
         ul li {
+            background: #f9f9f9;
             font-size: 17px;
             padding: 15px 8px 15px 50px;
             user-select: none;
             cursor: pointer;
             position: relative;
             transition: background 0.3s ease, transform 0.2s ease;
-            border-radius: 10px;
+            border-radius: 16px;
         }
 
         ul li:hover {
-            background: #f9f9f9;
+            background: #ECECEC;
             transform: translateX(5px);
         }
 
@@ -175,6 +175,29 @@
         ul li {
             animation: fadeIn 0.3s ease;
         }
+
+        @media (max-width: 768px) {
+            .todo-app {
+                width: 94%;
+                padding: 30px 20px;
+            }
+
+            .row {
+                flex-direction: column;
+                padding-left: 0;
+            }
+
+            .row input {
+                width: 96%;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
+                padding: 16px 20px;
+                font-size: 26px;
+            }
+        }
     </style>
 </head>
 
@@ -192,8 +215,8 @@
         <div class="todo-app">
             <h2>To-Do List <img src="images/icon.webp" alt="To-Do Icon"></h2>
             <div class="row">
-                <input type="text" id="input-box" placeholder="Add your Task" aria-label="Add your Task">
-                <button onclick="AddTask()" aria-label="Add Task">Add</button>
+                <input type="text" id="input-box" placeholder="Add your Task">
+                <button onclick="AddTask()">Add</button>
             </div>
             <ul id="list-container" role="list">
                 <!-- Tasks will be dynamically added here -->
