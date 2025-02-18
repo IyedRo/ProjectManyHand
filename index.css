@@ -3,24 +3,18 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     font-size: 18px;
-    color: #111;
-}
-
-a {
-    text-decoration: none;
 }
 
 .header {
     background-color: #284761;
-    padding: 1vw 2vw;
+    padding: 0.6vw 1vw;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
 }
 
 .header h2 {
-    font-size: 22px;
+    font-size: 1.4rem;
     margin: 0;
     color: white;
     cursor: pointer;
@@ -28,18 +22,20 @@ a {
 
 .header .menu {
     display: flex;
-    gap: 16px;
+    gap: 1vw;
+    margin-left: auto;
 }
 
 .header .menu a {
     font-weight: bold;
     color: white;
-    padding: 8px 12px;
+    text-decoration: none;
+    padding: 0.8vw 1.2vw;
     border-radius: 8px;
-    transition: background-color 0.12s, color 0.12s;
+    transition: 0.2s;
 }
 
 .header .menu a:hover {
     background-color: white;
-    color: #27445D;
+    color: #284761;
 }
