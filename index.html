@@ -6,50 +6,54 @@
     <title>ListYourWork</title>
     <link rel="stylesheet" href="index.css">
     <style>
-        p {
-            font-size: 4rem;
-            margin: 20px 0 0 0;
+        .main-heading {
+            text-align: center;
+            margin: 30px 0;
         }
 
-        #sp1 {
-            color: blue;
+        .main-heading p {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin: 0;
         }
 
-        #sp2 {
-            font-size: 20px;
+        .highlight {
+            color: #1a73e8;
+        }
+
+        .subheading {
+            font-size: 2rem;
+            color: #666;
         }
 
         .container {
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
         }
 
         .todo-app {
-            width: 90%;
+            width: 100%;
             max-width: 540px;
             background: #fff;
-            margin: 20px auto;
-            padding: 40px 30px;
-            border-radius: 24px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .todo-app:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .todo-app h2 {
             color: #002765;
+            font-size: 26px;
+            font-weight: 600;
             display: flex;
             align-items: center;
-            margin-bottom: 30px;
-            font-size: 28px;
-            font-weight: 600;
+            gap: 12px;
         }
 
         .todo-app h2 img {
@@ -59,62 +63,54 @@
         }
 
         .todo-app h2 img:hover {
-            transform: rotate(15deg);
+            transform: rotate(16deg);
         }
 
-        .row {
+        .task-input {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: #edeef0;
-            border-radius: 24px;
-            padding-left: 20px;
-            margin-bottom: 30px;
-            transition: background 0.3s ease, box-shadow 0.3s ease;
+            gap: 10px;
+            margin-bottom: 25px;
         }
 
-        .row:hover {
-            background: #e0e0e0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .row input {
+        .input-container {
             flex: 1;
+            background: #edeef0;
+            border-radius: 12px;
+            padding: 0 15px;
+            transition: background 0.3s ease;
+        }
+
+        .input-container:focus-within {
+            background: #e0e0e0;
+        }
+
+        .task-input input {
+            width: 100%;
             border: none;
             outline: none;
             background: transparent;
-            padding: 15px;
-            font-size: 18px;
+            padding: 15px 0;
+            font-size: 16px;
             color: #333;
-            transition: color 0.3s ease;
         }
 
-        .row input::placeholder {
-            color: #999;
-        }
-
-        .row input:focus::placeholder {
-            color: transparent;
-        }
-
-        button {
+        .add-btn {
             border: none;
-            outline: none;
-            padding: 16px 50px;
+            padding: 18px 36px;
             background: #ff5945;
             color: #fff;
             font-size: 16px;
             cursor: pointer;
-            border-radius: 24px;
+            border-radius: 12px;
             transition: background 0.3s ease, transform 0.2s ease;
         }
 
-        button:hover {
+        .add-btn:hover {
             background: #ff3b2f;
             transform: scale(1.05);
         }
 
-        button:active {
+        .add-btn:active {
             transform: scale(0.95);
         }
 
@@ -132,6 +128,7 @@
             position: relative;
             transition: background 0.3s ease, transform 0.2s ease;
             border-radius: 16px;
+            animation: fadeIn 0.3s ease;
         }
 
         ul li:hover {
@@ -183,9 +180,6 @@
             color: #ff5945;
         }
 
-        ul li {
-            animation: fadeIn 0.3s ease;
-        }
 
         @media (max-width: 768px) {
             .todo-app {
@@ -193,12 +187,12 @@
                 padding: 30px 20px;
             }
 
-            .row {
+            .task-input {
                 flex-direction: column;
                 padding-left: 0;
             }
 
-            .row input {
+            .task-input input {
                 width: 96%;
                 margin-bottom: 10px;
             }
@@ -222,88 +216,84 @@
             <a href="Calc.html">Calc</a>
         </div>
     </div>
-    <center>
-        <p>
-            Manage your tasks with <span id="sp1">elegance</span><br>
-            <span id="sp2">Simple, intuitive, and beautifully designed to help you focus on
-                what matters most</span>
-        </p>
-    </center>
+    <div class="main-heading">
+        <p>Manage your tasks with <span class="highlight">elegance</span></p>
+        <span class="subheading">Simple, intuitive, and beautifully designed to help you focus on what matters
+            most</span>
+    </div>
     <div class="container">
         <div class="todo-app">
             <h2>To-Do List <img src="images/icon.webp" alt="To-Do Icon"></h2>
-            <div class="row">
-                <input type="text" id="input-box" placeholder="Add your Task">
-                <button onclick="AddTask()">Add</button>
+            <div class="task-input">
+                <div class="input-container">
+                    <input type="text" id="task-input" placeholder="Add your task">
+                </div>
+                <button id="add-btn" class="add-btn" onclick="AddTask()">Add</button>
             </div>
-            <ul id="list-container" role="list">
-            </ul>
+            <ul id="task-list" class="task-list" role="list"></ul>
         </div>
     </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const inputBox = document.getElementById("input-box");
-            const listContainer = document.getElementById("list-container");
-            if (!inputBox || !listContainer) {
-                console.error("Elements not found! Check your HTML.");
-                return;
-            } loadTasks();
-            function AddTask() {
-                const taskText = inputBox.value.trim();
-                if (taskText === '') {
-                    alert("The input box is empty. Please enter a task.");
-                    return;
-                } const task = document.createElement("li");
-                task.textContent = taskText;
-                task.classList.add("task-item");
-                listContainer.appendChild(task);
-                const span = document.createElement("span");
-                span.innerHTML = "\u00d7";
-                span.classList.add("delete-btn");
-                task.appendChild(span);
-                inputBox.value = "";
-                task.addEventListener("click", function () {
-                    task.classList.toggle("checked");
-                    saveTasks();
-                });
-                span.addEventListener("click", function (event) {
-                    event.stopPropagation();
-                    task.remove();
-                    saveTasks();
-                });
-                saveTasks();
-            } function saveTasks() {
-                const tasks = [];
-                document.querySelectorAll("#list-container li").forEach(task => {
-                    tasks.push({
-                        text: task.textContent,
-                        completed: task.classList.contains("checked")
-                    });
-                });
-                localStorage.setItem("tasks", JSON.stringify(tasks));
-            } function loadTasks() {
-                const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-                tasks.forEach(taskData => {
-                    const task = document.createElement("li");
-                    task.textContent = taskData.text;
-                    if (taskData.completed) { task.classList.add("checked"); } listContainer.appendChild(task);
-                    const span = document.createElement("span");
-                    span.innerHTML = "\u00d7";
-                    span.classList.add("delete-btn");
-                    task.appendChild(span);
-                    task.addEventListener("click", function () {
-                        task.classList.toggle("checked");
-                        saveTasks();
-                    });
-                    span.addEventListener("click", function (event) {
-                        event.stopPropagation();
-                        task.remove();
-                        saveTasks();
-                    });
-                });
-            } window.AddTask = AddTask;
-        });
-    </script>
 </body>
 
 </html>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const inputBox = document.getElementById("task-input");
+        const listContainer = document.getElementById("task-list");
+        const addButton = document.getElementById("add-btn");
+
+        function saveTasks() {
+            const tasks = [];
+            document.querySelectorAll("#task-list li").forEach(task => {
+                tasks.push({
+                    text: task.textContent.replace("×", ""),
+                    completed: task.classList.contains("checked")
+                });
+            });
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+
+        function loadTasks() {
+            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+            tasks.forEach(taskData => {
+                createTask(taskData.text, taskData.completed);
+            });
+        }
+
+        function createTask(text, completed = false) {
+            const task = document.createElement("li");
+            task.textContent = text;
+            if (completed) task.classList.add("checked");
+            listContainer.appendChild(task);
+
+            const span = document.createElement("span");
+            span.innerHTML = "\u00d7";
+            task.appendChild(span);
+
+            task.addEventListener("click", function () {
+                task.classList.toggle("checked");
+                saveTasks();
+            });
+
+            span.addEventListener("click", function (event) {
+                event.stopPropagation();
+                task.remove();
+                saveTasks();
+            });
+            saveTasks();
+        }
+
+        addButton.addEventListener("click", function () {
+            const taskText = inputBox.value.trim();
+            if (taskText === '') {
+                alert("Please enter a task.");
+                return;
+            }
+            createTask(taskText);
+            inputBox.value = "";
+        });
+
+        loadTasks();
+    });
+</script>
