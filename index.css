@@ -1,20 +1,41 @@
-body{background: linear-gradient(135deg, #EEE2DE, #f0f0f0);
+body {
+    background: linear-gradient(135deg, #EEE2DE, #f0f0f0);
     margin: 0;
     font-family: Arial, sans-serif;
-    font-size: 18px;}.header{background-color: #284761;
-    padding: 0.6vw 1vw;
+    font-size: 18px;
+}
+
+.header {
+    background-color: #284761;
+    padding: 0.5vw 1vw;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);}.header h2{font-size: 1.4rem;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.header h2 {
+    font-size: 1.4rem;
     margin: 0;
     color: white;
-    cursor: pointer;}.header .menu{display: flex;
+    cursor: pointer;
+}
+
+.header .menu {
+    display: flex;
     gap: 1vw;
-    margin-left: auto;}.header .menu a{font-weight: bold;
+    margin-left: auto;
+}
+
+.header .menu a {
+    font-weight: bold;
     color: white;
     text-decoration: none;
     padding: 0.8vw 1.2vw;
     border-radius: 8px;
-    transition: 0.2s;}.header .menu a:hover{background-color: white;
+    transition: 0.2s;
+}
+
+.header .menu a:hover {
+    background-color: white;
     color: #284761;
 }
