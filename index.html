@@ -1,47 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>ListYourWork</title>
     <link rel="stylesheet" href="index.css">
     <style>
-        .container{width: 100%;
+        .container {
+            width: 100%;
             min-height: 64vh;
             padding: 20px;
             display: flex;
             justify-content: center;
             align-items: center;
-            box-sizing: border-box;}.todo-app{width: 90%;
+            box-sizing: border-box;
+        }
+
+        .todo-app {
+            width: 90%;
             max-width: 540px;
             background: #fff;
             margin: 20px auto;
             padding: 40px 30px;
             border-radius: 24px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;}.todo-app:hover{transform: translateY(-5px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);}.todo-app h2{color: #002765;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .todo-app:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .todo-app h2 {
+            color: #002765;
             display: flex;
             align-items: center;
             margin-bottom: 30px;
             font-size: 28px;
-            font-weight: 600;}.todo-app h2 img{width: 35px;
+            font-weight: 600;
+        }
+
+        .todo-app h2 img {
+            width: 35px;
             margin-left: 15px;
-            transition: transform 0.3s ease;}.todo-app h2 img:hover{transform: rotate(15deg);}.row{display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .todo-app h2 img:hover {
+            transform: rotate(15deg);
+        }
+
+        .row {
+            display: flex;
             align-items: center;
             justify-content: space-between;
             background: #edeef0;
             border-radius: 24px;
             padding-left: 20px;
             margin-bottom: 30px;
-            transition: background 0.3s ease, box-shadow 0.3s ease;}.row:hover{background: #e0e0e0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);}.row input{flex: 1;
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .row:hover {
+            background: #e0e0e0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .row input {
+            flex: 1;
             border: none;
             outline: none;
             background: transparent;
             padding: 15px;
             font-size: 18px;
             color: #333;
-            transition: color 0.3s ease;}.row input::placeholder{color: #999;}.row input:focus::placeholder{color: transparent;}button{border: none;
+            transition: color 0.3s ease;
+        }
+
+        .row input::placeholder {
+            color: #999;
+        }
+
+        .row input:focus::placeholder {
+            color: transparent;
+        }
+
+        button {
+            border: none;
             outline: none;
             padding: 16px 50px;
             background: #ff5945;
@@ -49,17 +95,41 @@
             font-size: 16px;
             cursor: pointer;
             border-radius: 24px;
-            transition: background 0.3s ease, transform 0.2s ease;}button:hover{background: #ff3b2f;
-            transform: scale(1.05);}button:active{transform: scale(0.95);}ul{list-style: none;
-            padding: 0;}ul li{background: #f9f9f9;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background: #ff3b2f;
+            transform: scale(1.05);
+        }
+
+        button:active {
+            transform: scale(0.95);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #f9f9f9;
             font-size: 17px;
             padding: 15px 8px 15px 50px;
             user-select: none;
             cursor: pointer;
             position: relative;
             transition: background 0.3s ease, transform 0.2s ease;
-            border-radius: 16px;}ul li:hover{background: #ECECEC;
-            transform: translateX(5px);}ul li::before{content: '';
+            border-radius: 16px;
+        }
+
+        ul li:hover {
+            background: #ECECEC;
+            transform: translateX(5px);
+        }
+
+        ul li::before {
+            content: '';
             position: absolute;
             height: 28px;
             width: 28px;
@@ -70,8 +140,20 @@
             left: 8px;
             top: 50%;
             transform: translateY(-50%);
-            transition: background-image 0.3s ease;}ul li.checked{color: #555;
-            text-decoration: line-through;}ul li.checked::before{background-image: url(images/checked.webp);}ul li span{position: absolute;
+            transition: background-image 0.3s ease;
+        }
+
+        ul li.checked {
+            color: #555;
+            text-decoration: line-through;
+        }
+
+        ul li.checked::before {
+            background-image: url(images/checked.webp);
+        }
+
+        ul li span {
+            position: absolute;
             right: 0;
             top: 50%;
             transform: translateY(-50%);
@@ -82,15 +164,43 @@
             line-height: 40px;
             text-align: center;
             border-radius: 50%;
-            transition: background 0.3s ease, color 0.3s ease;}ul li span:hover{background-color: #edeef0;
-            color: #ff5945;}ul li{animation: fadeIn 0.3s ease;}@media (max-width: 768px){.todo-app{width: 94%;
-                padding: 30px 20px;}.row{flex-direction: column;
-                padding-left: 0;}.row input{width: 96%;
-                margin-bottom: 10px;}button{width: 100%;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+
+        ul li span:hover {
+            background-color: #edeef0;
+            color: #ff5945;
+        }
+
+        ul li {
+            animation: fadeIn 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .todo-app {
+                width: 94%;
+                padding: 30px 20px;
+            }
+
+            .row {
+                flex-direction: column;
+                padding-left: 0;
+            }
+
+            .row input {
+                width: 96%;
+                margin-bottom: 10px;
+            }
+
+            button {
+                width: 100%;
                 padding: 16px 20px;
-                font-size: 26px;}}
+                font-size: 26px;
+            }
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h2><span style="color: white;">Group BroTn</span></h2>
@@ -113,51 +223,69 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function (){const inputBox=document.getElementById("input-box");
-            const listContainer=document.getElementById("list-container");
-            if (!inputBox || !listContainer){console.error("Elements not found! Check your HTML.");
-                return;}loadTasks();
-            function AddTask(){const taskText=inputBox.value.trim();
-                if (taskText === ''){alert("The input box is empty. Please enter a task.");
-                    return;}const task=document.createElement("li");
-                task.textContent=taskText;
+        document.addEventListener("DOMContentLoaded", function () {
+            const inputBox = document.getElementById("input-box");
+            const listContainer = document.getElementById("list-container");
+            if (!inputBox || !listContainer) {
+                console.error("Elements not found! Check your HTML.");
+                return;
+            } loadTasks();
+            function AddTask() {
+                const taskText = inputBox.value.trim();
+                if (taskText === '') {
+                    alert("The input box is empty. Please enter a task.");
+                    return;
+                } const task = document.createElement("li");
+                task.textContent = taskText;
                 task.classList.add("task-item");
                 listContainer.appendChild(task);
-                const span=document.createElement("span");
-                span.innerHTML="\u00d7";
+                const span = document.createElement("span");
+                span.innerHTML = "\u00d7";
                 span.classList.add("delete-btn");
                 task.appendChild(span);
-                inputBox.value="";
-                task.addEventListener("click", function (){task.classList.toggle("checked");
+                inputBox.value = "";
+                task.addEventListener("click", function () {
+                    task.classList.toggle("checked");
                     saveTasks();
                 });
-                span.addEventListener("click", function (event){event.stopPropagation();
+                span.addEventListener("click", function (event) {
+                    event.stopPropagation();
                     task.remove();
                     saveTasks();
                 });
-                saveTasks();}function saveTasks(){const tasks=[];
-                document.querySelectorAll("#list-container li").forEach(task =>{tasks.push({
+                saveTasks();
+            } function saveTasks() {
+                const tasks = [];
+                document.querySelectorAll("#list-container li").forEach(task => {
+                    tasks.push({
                         text: task.textContent,
                         completed: task.classList.contains("checked")
                     });
                 });
-                localStorage.setItem("tasks", JSON.stringify(tasks));}function loadTasks(){const tasks=JSON.parse(localStorage.getItem("tasks")) || [];
-                tasks.forEach(taskData =>{const task=document.createElement("li");
-                    task.textContent=taskData.text;
-                    if (taskData.completed){task.classList.add("checked");}listContainer.appendChild(task);
-                    const span=document.createElement("span");
-                    span.innerHTML="\u00d7";
+                localStorage.setItem("tasks", JSON.stringify(tasks));
+            } function loadTasks() {
+                const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+                tasks.forEach(taskData => {
+                    const task = document.createElement("li");
+                    task.textContent = taskData.text;
+                    if (taskData.completed) { task.classList.add("checked"); } listContainer.appendChild(task);
+                    const span = document.createElement("span");
+                    span.innerHTML = "\u00d7";
                     span.classList.add("delete-btn");
                     task.appendChild(span);
-                    task.addEventListener("click", function (){task.classList.toggle("checked");
+                    task.addEventListener("click", function () {
+                        task.classList.toggle("checked");
                         saveTasks();
                     });
-                    span.addEventListener("click", function (event){event.stopPropagation();
+                    span.addEventListener("click", function (event) {
+                        event.stopPropagation();
                         task.remove();
                         saveTasks();
                     });
-                });}window.AddTask=AddTask;
+                });
+            } window.AddTask = AddTask;
         });
     </script>
 </body>
+
 </html>
