@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>PageAhmedExByIyed</title>
+    <link rel="stylesheet" href="index.css" />
+    <style>
+      body {
+        background-color: antiquewhite;
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+      }
+      .header2 {
+        display: flex;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        margin-bottom: 20px;
+      }
+      .header2 #h1,
+      .header2 #h2 {
+        background-color: #5d8b44;
+        border: 1px solid #b8c6c4;
+        margin: 0 auto;
+        width: 50%;
+        font-size: 40px;
+        text-align: center;
+        padding: 10px;
+      }
+      .header2 #h2 {
+        background-color: #dc5a39;
+      }
+      .hm {
+        background-color: #5d8b44;
+        border: 1px solid #b8c6c4;
+        border-radius: 24px 24px 0 0;
+        margin: 0 auto 10px;
+        width: 20%;
+        font-size: 28px;
+        text-align: center;
+        line-height: 60px;
+      }
+
+      .main {
+        background-color: #5d8b44;
+        border: 1px solid #b8c6c4;
+        margin: 0 auto;
+        width: 80%;
+        text-align: center;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      input,
+      select {
+        background-color: #ffffff;
+        border: 1px solid #b2b2b2;
+        padding: 8px;
+        margin: 8px;
+        width: 25%;
+        font-size: 18px;
+        color: black;
+      }
+      input:hover {
+        background-color: #eff8ff;
+        border: 1px solid #bfc6cc;
+      }
+
+      #m {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+      }
+
+      #m1,
+      #m2 {
+        background-color: #5d8b44;
+        border: 1px solid #b8c6c4;
+        width: 100%;
+        padding: 15px;
+        font-size: 18px;
+      }
+
+      #ready {
+        background-color: #f8f8f8;
+        padding: 10px;
+        display: inline-block;
+        font-size: 18px;
+        color: black;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        font-size: 18px;
+        cursor: pointer;
+        margin: 6px;
+        border: none;
+      }
+
+      .btn-primary {
+        background-color: #dc5a39;
+        color: white;
+      }
+
+      .btn-reset {
+        background-color: #6c757d;
+        color: white;
+      }
+
+      .result-display {
+        background-color: #f8f9fa;
+        color: #333;
+        padding: 10px;
+        margin: 5px 0;
+        min-height: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="header">
+      <h2><span style="color: white">Group BroTn</span></h2>
+      <div class="menu">
+        <a href="index.html"> To-Do List</a>
+        <a href="Purposes.html">Purposes</a>
+        <a href="Calc.html">Calc</a>
+        <a href="MentalCalculationGame.html">MentalCalculationGame</a>
+      </div>
+    </div>
+    <div class="header2">
+      <div id="h1">Mental Calculation Game</div>
+      <div id="h2">Time: <span id="timedisplay">0</span> seconds</div>
+    </div>
+
+    <div class="hm">Game</div>
+    <div class="main">
+      <div>
+        <label>Nom</label>
+        <input type="text" id="nom" required />
+        <label>Prenom</label>
+        <input type="text" id="prenom" required />
+        <label>Classe</label>
+        <select id="si" required>
+          <option value="">Select Option:</option>
+          <option value="1SI">1SI</option>
+          <option value="2SI">2SI</option>
+          <option value="3SI">3SI</option>
+          <option value="4SI">4SI</option>
+        </select>
+      </div>
+      <button id="commencer" class="btn btn-primary" onclick="Start()">
+        Commencer
+      </button>
+      <div id="m">
+        <div id="m1">
+          <div>
+            <label>X</label>
+            <input type="number" id="x" readonly />
+            <label>Y</label>
+            <input type="number" id="y" readonly />
+          </div>
+
+          <div>
+            <label>Calculations</label><br />
+            <label>X + Y =</label>
+            <input type="number" id="xpy" required /><br />
+            <label>X - Y =</label>
+            <input type="number" id="xmy" required /><br />
+            <label>X * Y =</label>
+            <input type="number" id="xfy" required />
+          </div>
+        </div>
+        <div id="m2">
+          <label>Problem Details</label><br />
+          <div class="result-display" id="problem-display"></div>
+
+          <label>Your Answers</label><br />
+          <div class="result-display" id="answers-display"></div>
+
+          <label>Results</label><br />
+          <div class="result-display" id="score-display"></div>
+        </div>
+      </div>
+      <button class="btn btn-reset" onclick="Reset()">Reset</button>
+      <div id="ready">Ready</div>
+    </div>
+  </body>
+</html>
+<script>
+  const elements = {
+    timedisplay: document.getElementById("timedisplay"),
+    nom: document.getElementById("nom"),
+    prenom: document.getElementById("prenom"),
+    si: document.getElementById("si"),
+    commencer: document.getElementById("commencer"),
+    x: document.getElementById("x"),
+    y: document.getElementById("y"),
+    xpy: document.getElementById("xpy"),
+    xmy: document.getElementById("xmy"),
+    xfy: document.getElementById("xfy"),
+    ready: document.getElementById("ready"),
+    problemDisplay: document.getElementById("problem-display"),
+    answersDisplay: document.getElementById("answers-display"),
+    scoreDisplay: document.getElementById("score-display"),
+  };
+  let gameState = {
+    intervalId: null,
+    timer: 0,
+    correctAnswers: 0,
+    currentProblem: { x: 0, y: 0 },
+  };
+  function Start() {
+    if (!elements.nom.value || !elements.prenom.value || !elements.si.value) {
+      alert("Please fill in all fields before starting!");
+      return false;
+    }
+    gameState.timer = 0;
+    elements.timedisplay.innerText = "0";
+    clearInterval(gameState.intervalId);
+    gameState.intervalId = setInterval(() => {
+      gameState.timer++;
+      elements.timedisplay.innerText = gameState.timer;
+    }, 1000);
+    gameState.currentProblem = {
+      x: Math.floor(Math.random() * 100) + 1,
+      y: Math.floor(Math.random() * 100) + 1,
+    };
+    elements.x.value = gameState.currentProblem.x;
+    elements.y.value = gameState.currentProblem.y;
+    elements.xpy.value = "";
+    elements.xmy.value = "";
+    elements.xfy.value = "";
+    elements.answersDisplay.textContent = "";
+    elements.scoreDisplay.textContent = "";
+    elements.problemDisplay.textContent = `X = ${gameState.currentProblem.x}, Y = ${gameState.currentProblem.y}`;
+    elements.ready.innerText = `Welcome ${elements.nom.value} ${elements.prenom.value} (${elements.si.value}) to the game!`;
+    elements.commencer.textContent = "Submit";
+    elements.commencer.setAttribute("onclick", "Submit()");
+  }
+  function Submit() {
+    const { x, y } = gameState.currentProblem;
+    const userAnswers = {
+      sum: Number(elements.xpy.value),
+      difference: Number(elements.xmy.value),
+      product: Number(elements.xfy.value),
+    };
+    const correctAnswers = {
+      sum: x + y,
+      difference: x - y,
+      product: x * y,
+    };
+    gameState.correctAnswers = 0;
+    if (userAnswers.sum === correctAnswers.sum) gameState.correctAnswers++;
+    if (userAnswers.difference === correctAnswers.difference)
+      gameState.correctAnswers++;
+    if (userAnswers.product === correctAnswers.product)
+      gameState.correctAnswers++;
+    clearInterval(gameState.intervalId);
+    elements.answersDisplay.textContent = `Sum: ${userAnswers.sum}, Difference: ${userAnswers.difference}, Product: ${userAnswers.product}`;
+    elements.scoreDisplay.textContent = `Correct answers: ${gameState.correctAnswers}/3 | Time: ${gameState.timer} seconds`;
+    elements.ready.innerText = `Finished! Score: ${gameState.correctAnswers}/3 in ${gameState.timer} seconds`;
+    elements.commencer.textContent = "Commencer";
+    elements.commencer.setAttribute("onclick", "Start()");
+  }
+  function Reset() {
+    document
+      .querySelectorAll("input[type='text'], input[type='number']")
+      .forEach((el) => (el.value = ""));
+    elements.si.value = "";
+    elements.problemDisplay.textContent = "";
+    elements.answersDisplay.textContent = "";
+    elements.scoreDisplay.textContent = "";
+    elements.ready.innerText = "Ready";
+    elements.commencer.textContent = "Commencer";
+    elements.commencer.setAttribute("onclick", "Start()");
+    clearInterval(gameState.intervalId);
+    elements.timedisplay.innerText = "0";
+    gameState.timer = 0;
+    gameState.correctAnswers = 0;
+  }
+</script>

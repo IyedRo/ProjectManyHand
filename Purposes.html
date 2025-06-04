@@ -1,129 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>Loulad Purposes</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
     <style>
+      h2 {
+        font-size: 2vw;
+        margin: 0 1vw;
+        color: rgb(54, 54, 212);
+        text-transform: capitalize;
+      }
+
+      p {
+        font-size: 1.4vw;
+        text-indent: 4vw;
+        color: #2b2a4c;
+        line-height: 1.4;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 76vw;
+        margin: 1.5vw auto;
+        background-color: #fff;
+        padding: 1.5vw;
+        border-radius: 1.2vw;
+        box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.3);
+        gap: 2vw;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      .container.reverse {
+        flex-direction: row-reverse;
+      }
+
+      img {
+        width: 20vw;
+        height: auto;
+        border-radius: 1vw;
+        box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+      }
+
+      img:hover {
+        transform: scale(1.05);
+      }
+
+      .content {
+        flex: 1;
+        font-size: 1.2vw;
+      }
+
+      .title {
+        font-size: 1.8vw;
+        font-weight: 800;
+        color: red;
+        background-color: beige;
+        padding: 1vw;
+        border-radius: 1vw;
+        text-align: center;
+        margin-bottom: 1vw;
+        box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.5);
+      }
+
+      @media (max-width: 768px) {
         h2 {
-            font-size: 2vw;
-            margin: 0 1vw;
-            color: rgb(54, 54, 212);
-            text-transform: capitalize;
+          font-size: 4vw;
         }
 
         p {
-            font-size: 1.4vw;
-            text-indent: 4vw;
-            color: #2B2A4C;
-            line-height: 1.4;
+          font-size: 3vw;
         }
 
         .container {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            max-width: 76vw;
-            margin: 1.5vw auto;
-            background-color: #fff;
-            padding: 1.5vw;
-            border-radius: 1.2vw;
-            box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.3);
-            gap: 2vw;
-            overflow: hidden;
-            box-sizing: border-box;
-        }
-
-        .container.reverse {
-            flex-direction: row-reverse;
+          flex-direction: column;
+          max-width: 90vw;
+          gap: 3vw;
         }
 
         img {
-            width: 20vw;
-            height: auto;
-            border-radius: 1vw;
-            box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.2);
-            transition: 0.3s;
+          width: 50vw;
         }
-
-        img:hover {
-            transform: scale(1.05);
-        }
-
-        .content {
-            flex: 1;
-            font-size: 1.2vw;
-        }
-
-        .title {
-            font-size: 1.8vw;
-            font-weight: 800;
-            color: red;
-            background-color: beige;
-            padding: 1vw;
-            border-radius: 1vw;
-            text-align: center;
-            margin-bottom: 1vw;
-            box-shadow: 0 0 0.5vw rgba(0, 0, 0, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            h2 {
-                font-size: 4vw;
-            }
-
-            p {
-                font-size: 3vw;
-            }
-
-            .container {
-                flex-direction: column;
-                max-width: 90vw;
-                gap: 3vw;
-            }
-
-            img {
-                width: 50vw;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <h2><span>Group BroTn</span></h2>
-        <nav class="menu">
-            <a href="index.html">
-                To-Do List</a>
-            <a href="Purposes.html">Purposes</a>
-            <a href="Calc.html">Calc</a>
-        </nav>
+      <h2><span>Group BroTn</span></h2>
+      <nav class="menu">
+        <a href="index.html"> To-Do List</a>
+        <a href="Purposes.html">Purposes</a>
+        <a href="Calc.html">Calc</a>
+        <a href="MentalCalculationGame.html">MentalCalculationGame</a>
+      </nav>
     </header>
     <main>
-        <section class="container">
-            <img class="dish-image" src="images/Dish.webp" alt="A beautifully plated culinary dish" width="300"
-                height="300">
-            <div class="description">
-                <h2>Discover Culinary Excellence</h2>
-                <p>Get ready to treat your taste buds to an adventure they’ll never forget! Our chef’s hand-crafted
-                    masterpieces are not just food; they’re an experience. Each bite is a symphony of flavors, made with
-                    the freshest ingredients and plated to perfection. Whether you’re a foodie or just really hungry,
-                    you’ll leave satisfied and already planning your next visit!</p>
-            </div>
-        </section>
-        <section class="container">
-            <div class="description">
-                <h2>Dine in Comfort and Style</h2>
-                <p>Step into our little slice of paradise, where the lighting is as warm as the welcome. Our restaurant
-                    is designed for relaxation, with just the right blend of comfort and sophistication. Whether you're
-                    here for a romantic dinner or a casual catch-up, you'll love our cozy atmosphere, elegant decor, and
-                    service that makes you feel like a VIP. Oh, and did we mention the food? Yeah, it’s really good.</p>
-            </div>
-            <img class="table-image" src="images/table.webp" alt="A cozy and stylish dining table setup" width="300"
-                height="300">
-        </section>
+      <section class="container">
+        <img
+          class="dish-image"
+          src="images/Dish.webp"
+          alt="A beautifully plated culinary dish"
+          width="300"
+          height="300"
+        />
+        <div class="description">
+          <h2>Discover Culinary Excellence</h2>
+          <p>
+            Get ready to treat your taste buds to an adventure they’ll never
+            forget! Our chef’s hand-crafted masterpieces are not just food;
+            they’re an experience. Each bite is a symphony of flavors, made with
+            the freshest ingredients and plated to perfection. Whether you’re a
+            foodie or just really hungry, you’ll leave satisfied and already
+            planning your next visit!
+          </p>
+        </div>
+      </section>
+      <section class="container">
+        <div class="description">
+          <h2>Dine in Comfort and Style</h2>
+          <p>
+            Step into our little slice of paradise, where the lighting is as
+            warm as the welcome. Our restaurant is designed for relaxation, with
+            just the right blend of comfort and sophistication. Whether you're
+            here for a romantic dinner or a casual catch-up, you'll love our
+            cozy atmosphere, elegant decor, and service that makes you feel like
+            a VIP. Oh, and did we mention the food? Yeah, it’s really good.
+          </p>
+        </div>
+        <img
+          class="table-image"
+          src="images/table.webp"
+          alt="A cozy and stylish dining table setup"
+          width="300"
+          height="300"
+        />
+      </section>
     </main>
-</body>
-
+  </body>
 </html>

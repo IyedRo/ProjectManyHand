@@ -1,299 +1,298 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>ListYourWork</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
     <style>
-        .main-heading {
-            text-align: center;
-            margin: 30px 0;
-        }
+      .main-heading {
+        text-align: center;
+        margin: 30px 0;
+      }
 
-        .main-heading p {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin: 0;
-        }
+      .main-heading p {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin: 0;
+      }
 
-        .highlight {
-            color: #1a73e8;
-        }
+      .highlight {
+        color: #1a73e8;
+      }
 
-        .subheading {
-            font-size: 2rem;
-            color: #666;
-        }
+      .subheading {
+        font-size: 2rem;
+        color: #666;
+      }
 
-        .container {
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
+      .container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
 
+      .todo-app {
+        width: 100%;
+        max-width: 540px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .todo-app:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      .todo-app h2 {
+        color: #002765;
+        font-size: 26px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .todo-app h2 img {
+        width: 35px;
+        margin-left: 15px;
+        transition: transform 0.3s ease;
+      }
+
+      .todo-app h2 img:hover {
+        transform: rotate(16deg);
+      }
+
+      .task-input {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+      }
+
+      .input-container {
+        flex: 1;
+        background: #edeef0;
+        border-radius: 12px;
+        padding: 0 15px;
+        transition: background 0.3s ease;
+      }
+
+      .input-container:focus-within {
+        background: #e0e0e0;
+      }
+
+      .task-input input {
+        width: 100%;
+        border: none;
+        outline: none;
+        background: transparent;
+        padding: 15px 0;
+        font-size: 16px;
+        color: #333;
+      }
+
+      .add-btn {
+        border: none;
+        padding: 18px 36px;
+        background: #ff5945;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 12px;
+        transition: background 0.3s ease, transform 0.2s ease;
+      }
+
+      .add-btn:hover {
+        background: #ff3b2f;
+        transform: scale(1.05);
+      }
+
+      .add-btn:active {
+        transform: scale(0.95);
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      ul li {
+        background: #f9f9f9;
+        font-size: 17px;
+        padding: 15px 8px 15px 50px;
+        user-select: none;
+        cursor: pointer;
+        position: relative;
+        transition: background 0.3s ease, transform 0.2s ease;
+        border-radius: 16px;
+        animation: fadeIn 0.3s ease;
+      }
+
+      ul li:hover {
+        background: #ececec;
+        transform: translateX(5px);
+      }
+
+      ul li::before {
+        content: "";
+        position: absolute;
+        height: 28px;
+        width: 28px;
+        border-radius: 50%;
+        background-image: url(images/unchecked.webp);
+        background-size: cover;
+        background-position: center;
+        left: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        transition: background-image 0.3s ease;
+      }
+
+      ul li.checked {
+        color: #555;
+        text-decoration: line-through;
+      }
+
+      ul li.checked::before {
+        background-image: url(images/checked.webp);
+      }
+
+      ul li span {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        font-size: 22px;
+        color: #555;
+        line-height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        transition: background 0.3s ease, color 0.3s ease;
+      }
+
+      ul li span:hover {
+        background-color: #edeef0;
+        color: #ff5945;
+      }
+
+      @media (max-width: 768px) {
         .todo-app {
-            width: 100%;
-            max-width: 540px;
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .todo-app:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .todo-app h2 {
-            color: #002765;
-            font-size: 26px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .todo-app h2 img {
-            width: 35px;
-            margin-left: 15px;
-            transition: transform 0.3s ease;
-        }
-
-        .todo-app h2 img:hover {
-            transform: rotate(16deg);
+          width: 94%;
+          padding: 30px 20px;
         }
 
         .task-input {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .input-container {
-            flex: 1;
-            background: #edeef0;
-            border-radius: 12px;
-            padding: 0 15px;
-            transition: background 0.3s ease;
-        }
-
-        .input-container:focus-within {
-            background: #e0e0e0;
+          flex-direction: column;
+          padding-left: 0;
         }
 
         .task-input input {
-            width: 100%;
-            border: none;
-            outline: none;
-            background: transparent;
-            padding: 15px 0;
-            font-size: 16px;
-            color: #333;
+          width: 96%;
+          margin-bottom: 10px;
         }
 
-        .add-btn {
-            border: none;
-            padding: 18px 36px;
-            background: #ff5945;
-            color: #fff;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 12px;
-            transition: background 0.3s ease, transform 0.2s ease;
+        button {
+          width: 100%;
+          padding: 16px 20px;
+          font-size: 26px;
         }
-
-        .add-btn:hover {
-            background: #ff3b2f;
-            transform: scale(1.05);
-        }
-
-        .add-btn:active {
-            transform: scale(0.95);
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            background: #f9f9f9;
-            font-size: 17px;
-            padding: 15px 8px 15px 50px;
-            user-select: none;
-            cursor: pointer;
-            position: relative;
-            transition: background 0.3s ease, transform 0.2s ease;
-            border-radius: 16px;
-            animation: fadeIn 0.3s ease;
-        }
-
-        ul li:hover {
-            background: #ECECEC;
-            transform: translateX(5px);
-        }
-
-        ul li::before {
-            content: '';
-            position: absolute;
-            height: 28px;
-            width: 28px;
-            border-radius: 50%;
-            background-image: url(images/unchecked.webp);
-            background-size: cover;
-            background-position: center;
-            left: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            transition: background-image 0.3s ease;
-        }
-
-        ul li.checked {
-            color: #555;
-            text-decoration: line-through;
-        }
-
-        ul li.checked::before {
-            background-image: url(images/checked.webp);
-        }
-
-        ul li span {
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 40px;
-            height: 40px;
-            font-size: 22px;
-            color: #555;
-            line-height: 40px;
-            text-align: center;
-            border-radius: 50%;
-            transition: background 0.3s ease, color 0.3s ease;
-        }
-
-        ul li span:hover {
-            background-color: #edeef0;
-            color: #ff5945;
-        }
-
-
-        @media (max-width: 768px) {
-            .todo-app {
-                width: 94%;
-                padding: 30px 20px;
-            }
-
-            .task-input {
-                flex-direction: column;
-                padding-left: 0;
-            }
-
-            .task-input input {
-                width: 96%;
-                margin-bottom: 10px;
-            }
-
-            button {
-                width: 100%;
-                padding: 16px 20px;
-                font-size: 26px;
-            }
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="header">
-        <h2><span style="color: white;">Group BroTn</span></h2>
-        <div class="menu">
-            <a href="index.html">
-                To-Do List</a>
-            <a href="Purposes.html">Purposes</a>
-            <a href="Calc.html">Calc</a>
-        </div>
+      <h2><span style="color: white">Group BroTn</span></h2>
+      <div class="menu">
+        <a href="index.html"> To-Do List</a>
+        <a href="Purposes.html">Purposes</a>
+        <a href="Calc.html">Calc</a>
+        <a href="MentalCalculationGame.html">MentalCalculationGame</a>
+      </div>
     </div>
     <div class="main-heading">
-        <p>Manage your tasks with <span class="highlight">elegance</span></p>
-        <span class="subheading">Simple, intuitive, and beautifully designed to help you focus on what matters
-            most</span>
+      <p>Manage your tasks with <span class="highlight">elegance</span></p>
+      <span class="subheading"
+        >Simple, intuitive, and beautifully designed to help you focus on what
+        matters most</span
+      >
     </div>
     <div class="container">
-        <div class="todo-app">
-            <h2>To-Do List <img src="images/icon.webp" alt="To-Do Icon"></h2>
-            <div class="task-input">
-                <div class="input-container">
-                    <input type="text" id="task-input" placeholder="Add your task">
-                </div>
-                <button id="add-btn" class="add-btn" onclick="AddTask()">Add</button>
-            </div>
-            <ul id="task-list" class="task-list" role="list"></ul>
+      <div class="todo-app">
+        <h2>To-Do List <img src="images/icon.webp" alt="To-Do Icon" /></h2>
+        <div class="task-input">
+          <div class="input-container">
+            <input type="text" id="task-input" placeholder="Add your task" />
+          </div>
+          <button id="add-btn" class="add-btn" onclick="AddTask()">Add</button>
         </div>
+        <ul id="task-list" class="task-list" role="list"></ul>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const inputBox = document.getElementById("task-input");
-        const listContainer = document.getElementById("task-list");
-        const addButton = document.getElementById("add-btn");
+  document.addEventListener("DOMContentLoaded", function () {
+    const inputBox = document.getElementById("task-input");
+    const listContainer = document.getElementById("task-list");
+    const addButton = document.getElementById("add-btn");
 
-        function saveTasks() {
-            const tasks = [];
-            document.querySelectorAll("#task-list li").forEach(task => {
-                tasks.push({
-                    text: task.textContent.replace("×", ""),
-                    completed: task.classList.contains("checked")
-                });
-            });
-            localStorage.setItem("tasks", JSON.stringify(tasks));
-        }
-
-        function loadTasks() {
-            const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-            tasks.forEach(taskData => {
-                createTask(taskData.text, taskData.completed);
-            });
-        }
-
-        function createTask(text, completed = false) {
-            const task = document.createElement("li");
-            task.textContent = text;
-            if (completed) task.classList.add("checked");
-            listContainer.appendChild(task);
-
-            const span = document.createElement("span");
-            span.innerHTML = "\u00d7";
-            task.appendChild(span);
-
-            task.addEventListener("click", function () {
-                task.classList.toggle("checked");
-                saveTasks();
-            });
-
-            span.addEventListener("click", function (event) {
-                event.stopPropagation();
-                task.remove();
-                saveTasks();
-            });
-            saveTasks();
-        }
-
-        addButton.addEventListener("click", function () {
-            const taskText = inputBox.value.trim();
-            if (taskText === '') {
-                alert("Please enter a task.");
-                return;
-            }
-            createTask(taskText);
-            inputBox.value = "";
+    function saveTasks() {
+      const tasks = [];
+      document.querySelectorAll("#task-list li").forEach((task) => {
+        tasks.push({
+          text: task.textContent.replace("×", ""),
+          completed: task.classList.contains("checked"),
         });
+      });
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
 
-        loadTasks();
+    function loadTasks() {
+      const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+      tasks.forEach((taskData) => {
+        createTask(taskData.text, taskData.completed);
+      });
+    }
+
+    function createTask(text, completed = false) {
+      const task = document.createElement("li");
+      task.textContent = text;
+      if (completed) task.classList.add("checked");
+      listContainer.appendChild(task);
+
+      const span = document.createElement("span");
+      span.innerHTML = "\u00d7";
+      task.appendChild(span);
+
+      task.addEventListener("click", function () {
+        task.classList.toggle("checked");
+        saveTasks();
+      });
+
+      span.addEventListener("click", function (event) {
+        event.stopPropagation();
+        task.remove();
+        saveTasks();
+      });
+      saveTasks();
+    }
+
+    addButton.addEventListener("click", function () {
+      const taskText = inputBox.value.trim();
+      if (taskText === "") {
+        alert("Please enter a task.");
+        return;
+      }
+      createTask(taskText);
+      inputBox.value = "";
     });
+
+    loadTasks();
+  });
 </script>
