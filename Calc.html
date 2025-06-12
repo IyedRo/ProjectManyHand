@@ -1,155 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Calc</title>
-    <link rel="stylesheet" href="index.css" />
-    <style>
-      #Calculator {
-        margin: 100px auto 0;
-        width: 220px;
-        padding: 12px;
-        background: linear-gradient(to bottom, #003246, #0f5f87);
-        border-radius: 10px;
-        border: 2px solid white;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-      }
 
-      #output input {
-        height: 50px;
-        width: 100%;
-        margin-bottom: 10px;
-        padding: 5px 10px;
-        font-size: 28px;
-        text-align: right;
-        border-radius: 5px;
-        border: 2px solid #333;
-        box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
-        box-sizing: border-box;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <title>Calc</title>
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    #Calculator {
+      margin: 100px auto 0;
+      width: 220px;
+      padding: 12px;
+      background: linear-gradient(to bottom, #003246, #0f5f87);
+      border-radius: 10px;
+      border: 2px solid white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
 
-      #C {
-        width: 94px;
-        background-color: orange;
-        transition: all 0.3s ease-in-out;
-      }
+    #output input {
+      height: 50px;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      font-size: 28px;
+      text-align: right;
+      border-radius: 5px;
+      border: 2px solid #333;
+      box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+      box-sizing: border-box;
+    }
 
-      .row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 8px;
-      }
+    #C {
+      width: 94px;
+      background-color: orange;
+      transition: all 0.3s ease-in-out;
+    }
 
-      .btn,
-      .btn-op,
-      .btn-clear,
-      .btn-del {
-        height: 45px;
-        width: 45px;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.2s ease;
-      }
+    .row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
 
-      .btn {
-        background-color: #e0e0e0;
-      }
+    .btn,
+    .btn-op,
+    .btn-clear,
+    .btn-del {
+      height: 45px;
+      width: 45px;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
 
-      .btn:hover {
-        background-color: #d0d0d0;
-        transform: translateY(-2px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
+    .btn {
+      background-color: #e0e0e0;
+    }
 
-      .btn:active {
-        transform: translateY(1px);
-      }
+    .btn:hover {
+      background-color: #d0d0d0;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
 
-      .btn-op {
-        background-color: #a0a0a0;
-        color: white;
-      }
+    .btn:active {
+      transform: translateY(1px);
+    }
 
-      .btn-op:hover {
-        background-color: #808080;
-        transform: translateY(-2px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
+    .btn-op {
+      background-color: #a0a0a0;
+      color: white;
+    }
 
-      .btn-clear {
-        width: 94px;
-        background-color: #ff9500;
-        color: white;
-      }
+    .btn-op:hover {
+      background-color: #808080;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
 
-      .btn-del {
-        background-color: #ff9500;
-        color: white;
-      }
+    .btn-clear {
+      width: 94px;
+      background-color: #ff9500;
+      color: white;
+    }
 
-      .btn-clear:hover,
-      .btn-del:hover {
-        background-color: #ff7b00;
-        transform: translateY(-2px);
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-      }
-    </style>
-  </head>
+    .btn-del {
+      background-color: #ff9500;
+      color: white;
+    }
 
-  <body>
-    <div class="header">
-      <h2><span style="color: white">Group BroTn</span></h2>
-      <div class="menu">
-        <a href="index.html"> To-Do List</a>
-        <a href="Purposes.html">Purposes</a>
-        <a href="Calc.html">Calc</a>
-        <a href="MentalCalculationGame.html">MentalCalculationGame</a>
+    .btn-clear:hover,
+    .btn-del:hover {
+      background-color: #ff7b00;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="header">
+    <a href="https://github.com/IyedRo">
+      <h2><span style="color: white">Group Task</span></h2>
+    </a>
+    <div class="menu">
+      <a href="index.html"> To-Do List</a>
+      <a href="Purposes.html">Purposes</a>
+      <a href="Calc.html">Calc</a>
+      <a href="MentalCalculationGame.html">MentalCalculationGame</a>
+    </div>
+  </div>
+  <div id="Calculator">
+    <div id="output">
+      <input id="out" type="text" value="0" readonly aria-label="Calculator output" />
+    </div>
+    <div id="input">
+      <div class="row">
+        <button class="btn-clear" id="clear" aria-label="Clear">C</button>
+        <button class="btn-del" id="delete" aria-label="Delete">DEL</button>
+        <button class="btn-op" aria-label="Add">+</button>
+      </div>
+      <div class="row">
+        <button class="btn" aria-label="One">1</button>
+        <button class="btn" aria-label="Two">2</button>
+        <button class="btn" aria-label="Three">3</button>
+        <button class="btn-op" aria-label="Subtract">-</button>
+      </div>
+      <div class="row">
+        <button class="btn" aria-label="Four">4</button>
+        <button class="btn" aria-label="Five">5</button>
+        <button class="btn" aria-label="Six">6</button>
+        <button class="btn-op" aria-label="Multiply">×</button>
+      </div>
+      <div class="row">
+        <button class="btn" aria-label="Seven">7</button>
+        <button class="btn" aria-label="Eight">8</button>
+        <button class="btn" aria-label="Nine">9</button>
+        <button class="btn-op" aria-label="Divide">÷</button>
+      </div>
+      <div class="row">
+        <button class="btn" aria-label="Double Zero">00</button>
+        <button class="btn" aria-label="Zero">0</button>
+        <button class="btn" aria-label="Decimal Point">.</button>
+        <button class="btn-op" aria-label="Equals">=</button>
       </div>
     </div>
-    <div id="Calculator">
-      <div id="output">
-        <input
-          id="out"
-          type="text"
-          value="0"
-          readonly
-          aria-label="Calculator output"
-        />
-      </div>
-      <div id="input">
-        <div class="row">
-          <button class="btn-clear" id="clear" aria-label="Clear">C</button>
-          <button class="btn-del" id="delete" aria-label="Delete">DEL</button>
-          <button class="btn-op" aria-label="Add">+</button>
-        </div>
-        <div class="row">
-          <button class="btn" aria-label="One">1</button>
-          <button class="btn" aria-label="Two">2</button>
-          <button class="btn" aria-label="Three">3</button>
-          <button class="btn-op" aria-label="Subtract">-</button>
-        </div>
-        <div class="row">
-          <button class="btn" aria-label="Four">4</button>
-          <button class="btn" aria-label="Five">5</button>
-          <button class="btn" aria-label="Six">6</button>
-          <button class="btn-op" aria-label="Multiply">×</button>
-        </div>
-        <div class="row">
-          <button class="btn" aria-label="Seven">7</button>
-          <button class="btn" aria-label="Eight">8</button>
-          <button class="btn" aria-label="Nine">9</button>
-          <button class="btn-op" aria-label="Divide">÷</button>
-        </div>
-        <div class="row">
-          <button class="btn" aria-label="Double Zero">00</button>
-          <button class="btn" aria-label="Zero">0</button>
-          <button class="btn" aria-label="Decimal Point">.</button>
-          <button class="btn-op" aria-label="Equals">=</button>
-        </div>
-      </div>
-    </div>
-  </body>
+  </div>
+</body>
+
 </html>
