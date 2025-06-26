@@ -1,48 +1,51 @@
 * {
-    margin: 0;
-    padding: 0;
-    position: relative;
+    box-sizing: border-box;
     border-radius: 8px;
+    transition: all 0.16s;
 }
 
 body {
-    background: linear-gradient(135deg, #EEE2DE, #f0f0f0);
+    background-color: #ffffff;
     margin: 0;
-    font-family: Arial, sans-serif;
-    font-size: 18px;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.4;
 }
 
 .header {
     background-color: #003246;
-    padding: 0.5vw 1vw;
+    border-radius: 0px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    padding: 0.24rem 1rem;
     display: flex;
     position: sticky;
     align-items: center;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
     top: 0;
     z-index: 100;
     margin-bottom: 20px;
 }
 
 .header h2 {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     margin: 0;
-    color: white;
+    color: #fff;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .header .menu {
     display: flex;
-    gap: 1vw;
     margin-left: auto;
 }
 
 .header .menu a {
-    font-weight: bold;
-    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    color: #fff;
+    margin-left: 10px;
     text-decoration: none;
-    padding: 0.8vw 1.2vw;
-    transition: 0.2s;
+    background-color: rgba(255, 255, 255, 0.16);
 }
 
 .header .menu a:hover {
